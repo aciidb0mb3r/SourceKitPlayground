@@ -1,0 +1,5 @@
+module SourceKit {
+  umbrella header "sourcekitd.h"
+  export *
+  module * { export * }
+}

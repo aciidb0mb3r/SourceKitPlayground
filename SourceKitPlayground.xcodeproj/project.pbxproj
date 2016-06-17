@@ -11,6 +11,8 @@
 		BC91D2381D13D503006903F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC91D2371D13D503006903F2 /* ViewController.swift */; };
 		BC91D23A1D13D503006903F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC91D2391D13D503006903F2 /* Assets.xcassets */; };
 		BC91D23D1D13D503006903F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC91D23B1D13D503006903F2 /* Main.storyboard */; };
+		BC91D2461D13D6E1006903F2 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC91D2441D13D6E1006903F2 /* Loader.swift */; };
+		BC91D2471D13D6E1006903F2 /* SourceKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC91D2451D13D6E1006903F2 /* SourceKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,10 @@
 		BC91D2391D13D503006903F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC91D23C1D13D503006903F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BC91D23E1D13D503006903F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC91D2441D13D6E1006903F2 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		BC91D2451D13D6E1006903F2 /* SourceKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceKit.swift; sourceTree = "<group>"; };
+		BC91D2511D13D761006903F2 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		BC91D2521D13D761006903F2 /* sourcekitd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sourcekitd.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +42,7 @@
 		BC91D2291D13D503006903F2 = {
 			isa = PBXGroup;
 			children = (
+				BC91D2501D13D761006903F2 /* SourceKit */,
 				BC91D2341D13D503006903F2 /* SourceKitPlayground */,
 				BC91D2331D13D503006903F2 /* Products */,
 			);
@@ -52,6 +59,8 @@
 		BC91D2341D13D503006903F2 /* SourceKitPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				BC91D2441D13D6E1006903F2 /* Loader.swift */,
+				BC91D2451D13D6E1006903F2 /* SourceKit.swift */,
 				BC91D2351D13D503006903F2 /* AppDelegate.swift */,
 				BC91D2371D13D503006903F2 /* ViewController.swift */,
 				BC91D2391D13D503006903F2 /* Assets.xcassets */,
@@ -59,6 +68,15 @@
 				BC91D23E1D13D503006903F2 /* Info.plist */,
 			);
 			path = SourceKitPlayground;
+			sourceTree = "<group>";
+		};
+		BC91D2501D13D761006903F2 /* SourceKit */ = {
+			isa = PBXGroup;
+			children = (
+				BC91D2511D13D761006903F2 /* module.modulemap */,
+				BC91D2521D13D761006903F2 /* sourcekitd.h */,
+			);
+			path = SourceKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +154,8 @@
 			files = (
 				BC91D2381D13D503006903F2 /* ViewController.swift in Sources */,
 				BC91D2361D13D503006903F2 /* AppDelegate.swift in Sources */,
+				BC91D2461D13D6E1006903F2 /* Loader.swift in Sources */,
+				BC91D2471D13D6E1006903F2 /* SourceKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,8 +266,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = SourceKitPlayground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-Wl,-undefined,dynamic_lookup";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = im.ankit.SourceKitPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = SourceKit/;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -259,8 +283,12 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = SourceKitPlayground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "-Wl,-undefined,dynamic_lookup";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = im.ankit.SourceKitPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = SourceKit/;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
